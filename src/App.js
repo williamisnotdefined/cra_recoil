@@ -1,7 +1,14 @@
 import React from 'react'
+import { RecoilRoot } from 'recoil'
+
+import Home from './Pages/Home'
 
 function App() {
-    return <h1>Oi Will</h1>
+    return (
+        <RecoilRoot>
+            <Home />
+        </RecoilRoot>
+    )
 }
 
 export default App
