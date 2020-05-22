@@ -15,9 +15,10 @@ export default function UserInput() {
 
     function submit() {
         if (userToAdd) {
-            const findedUser = gitUsers.find(user => user.name === userToAdd)
-            if (!findedUser) {
-                addGitUsers([...gitUsers, { name: userToAdd }])
+            const hasUser = gitUsers.indexOf(userToAdd) > -1
+
+            if (!hasUser) {
+                addGitUsers([...gitUsers, userToAdd])
             }
 
             resetUserToAdd()

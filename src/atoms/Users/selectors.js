@@ -10,12 +10,12 @@ export const UsersWithFollowers = selector({
         const users = get(GithubUsers)
 
         if (users.length === 0) return []
+
         try {
-            const resp = await Promise.all(users.map(user => api.get(`/users/${user.name}`)))
+            const resp = await Promise.all(users.map(user => api.get(`/users/${user}`)))
             return resp.map(user => ({ name: user.login, followers: user.followers }))
         } catch (err) {
             console.log(err)
-            // precisa remover o usuário da lista de users pq ele n existe no git
             return []
         }
     }
